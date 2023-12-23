@@ -10,7 +10,10 @@
 
 <script setup>
 import ProductsData from "../../../src/data/products.json"
+import{ref,onMounted,onUpdated} from "vue"
 const products=ProductsData;
+
+
 </script>
 
 <style  scoped>

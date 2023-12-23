@@ -1,6 +1,6 @@
 <template>
 <div id="container">
-<HomeView/>
+<RouterView></RouterView>
 </div>
 </template>
 <script setup>
