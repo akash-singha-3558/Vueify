@@ -4,7 +4,7 @@
 </div>
 </template>
 <script setup>
-import HomeView from "./views/Home.vue"
+
 
 // import HelloWorld from './components/HelloWorld.vue';
 </script>
