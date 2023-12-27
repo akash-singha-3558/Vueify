@@ -14,7 +14,7 @@
 <script setup>
 //V-model --> The v-model directive is used to create a two-way binding 
 //between a form input element, or between a Vue instance property and a component.
-//Using reactive is a better solution than using ref each time for each individual form 
+//Using reactive is a better solution than using ref each time for each individual form submission 
 import { ref, reactive } from 'vue';
 import Navbar from '../components/HomePageComponents/Navbar.vue';
 
