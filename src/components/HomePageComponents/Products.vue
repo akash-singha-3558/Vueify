@@ -9,22 +9,29 @@
 </template>
 
 <script setup>
-// import ProductsData from "../../../src/data/products.json"
+
 import{ref,onMounted,onUpdated} from "vue";
 import axios from "axios";
+//import firebase utilities
+import {db,collection,getDocs} from "../../firebase.js";
+
 let products=ref([]);
 onMounted(async()=>{
-    // let res= await fetch("https://fakestoreapi.com/products")
-    // let data= await res.json();
-    // console.log("data==>",data)
-    // products.value=data;
-    //  axios.get("https://fakestoreapi.com/products").then((res)=>{
-    //     products.value=res.data;
-    // }).catch((er)=>{
-    //     console.log(er)
-    // });
-   
+ 
+await fetchProductData();
+
+
+
 })
+
+let fetchProductData=async()=>{
+    const querySnapshot = await getDocs(collection(db, "vuestore"));
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+  console.log(doc.id, " => ", doc.data());
+});
+}
+
 
 </script>
 
