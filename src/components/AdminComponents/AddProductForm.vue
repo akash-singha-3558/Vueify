@@ -114,7 +114,7 @@ const fileUpload = () => {
 
 
 const handleFormData=()=>{
-
+//form data
 console.log(form)
 
 
