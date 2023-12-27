@@ -10,13 +10,20 @@
 
 <script setup>
 // import ProductsData from "../../../src/data/products.json"
-import{ref,onMounted,onUpdated} from "vue"
+import{ref,onMounted,onUpdated} from "vue";
+import axios from "axios";
 let products=ref([]);
 onMounted(async()=>{
-    let res= await fetch("https://fakestoreapi.com/products")
-    let data= await res.json();
-    console.log("data==>",data)
-    products.value=data;
+    // let res= await fetch("https://fakestoreapi.com/products")
+    // let data= await res.json();
+    // console.log("data==>",data)
+    // products.value=data;
+    //  axios.get("https://fakestoreapi.com/products").then((res)=>{
+    //     products.value=res.data;
+    // }).catch((er)=>{
+    //     console.log(er)
+    // });
+   
 })
 
 </script>
