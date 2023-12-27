@@ -1,18 +1,23 @@
 <template>
     <div id="products">
     <div id="individual_product" v-for="(item,index) in products" :key="index">
-    <img id="prodImage" :src="item.image_url" :alt="item.name">
-    <p>{{ item.name }}</p>
+    <img id="prodImage" :src="item.image" :alt="item.name">
+    <p>{{ item.title }}</p>
     <p>{{ item.price }}</p>
     </div>
     </div>
 </template>
 
 <script setup>
-import ProductsData from "../../../src/data/products.json"
+// import ProductsData from "../../../src/data/products.json"
 import{ref,onMounted,onUpdated} from "vue"
-const products=ProductsData;
-
+let products=ref([]);
+onMounted(async()=>{
+    let res= await fetch("https://fakestoreapi.com/products")
+    let data= await res.json();
+    console.log("data==>",data)
+    products.value=data;
+})
 
 </script>
 
@@ -34,7 +39,8 @@ const products=ProductsData;
 } */
 #prodImage{
     
-    width:100%;
+    width:70%;
+    height: 250px;
     display: block;
     margin: auto;
 }
