@@ -2,13 +2,13 @@
     <div>
       <div id="navbar">
          <div id="lhs" >
-          <a href="/">Home</a>
+          <router-link to="/">Home</router-link>
          </div>
          <div id="rhs">
               <div>Account</div>
               <div id="cart">
                 <q-icon name="shopping_cart" />
-                <div id="cart_count">1</div>
+                <div id="cart_count">{{ cartStore.cart_count }}</div>
                 <!-- shopping_cart -->
               
               </div>
@@ -18,7 +18,9 @@
 </template>
 
 <script setup>
-
+import {useCartStore} from "../../store.js";
+const cartStore=useCartStore();
+console.log("test ==> ",cartStore.cart_count)
 </script>
 
 <style  scoped>
