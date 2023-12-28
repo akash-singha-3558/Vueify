@@ -1,6 +1,6 @@
 <template>
     <div id="products">
-    <div id="individual_product" v-for="(item,index) in products" :key="item.id">
+    <div @click="showProduct(item.id)" id="individual_product" v-for="item in products" :key="item.id">
     <img id="prodImage" :src="item.imageUrl" :alt="item.name">
     <p>{{ item.title }}</p>
     <p>₹{{ item.price }}</p>
@@ -11,10 +11,11 @@
 <script setup>
 
 import{ref,onMounted,onUpdated} from "vue";
+import {useRouter} from "vue-router";
 import axios from "axios";
 //import firebase utilities
 import {db,collection,getDocs} from "../../firebase.js";
-
+const router=useRouter();
 let products=ref([]);
 onMounted(async()=>{
  
@@ -31,9 +32,12 @@ querySnapshot.forEach((doc) => {
   products.value.push({...doc.data(),id:doc.id})
 //   console.log(doc.id, " => ", doc.data());
 });
-console.log(products.value)
+
 }
 
+const showProduct=(productId)=>{
+router.push(`productDetails/${productId}`);
+}
 
 </script>
 
