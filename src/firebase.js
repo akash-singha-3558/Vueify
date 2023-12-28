@@ -4,7 +4,8 @@ import { initializeApp } from 'firebase/app';
 import {
   getFirestore,
   collection,
-  getDocs
+  getDocs,
+  addDoc
 }
   from 'firebase/firestore/lite';
 
@@ -42,5 +43,6 @@ export {
   getStorage,
   ref,
   uploadBytesResumable,
-  getDownloadURL
+  getDownloadURL,
+  addDoc
 };
