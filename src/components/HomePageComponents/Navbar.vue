@@ -1,8 +1,8 @@
 <template>
     <div>
       <div id="navbar">
-         <div id="lhs">
-           Home
+         <div id="lhs" >
+          <a href="/">Home</a>
          </div>
          <div id="rhs">
               <div>Account</div>
@@ -28,7 +28,10 @@
     align-items: center;
     font-size: 130%;
     border-bottom: solid 1px black;
-    
+}
+a{
+  text-decoration: none;
+  color: black;
 }
 #lhs{
     display: flex;
