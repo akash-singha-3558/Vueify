@@ -3,7 +3,7 @@
     <div id="individual_product" v-for="(item,index) in products" :key="item.id">
     <img id="prodImage" :src="item.imageUrl" :alt="item.name">
     <p>{{ item.title }}</p>
-    <p>{{ item.price }}</p>
+    <p>₹{{ item.price }}</p>
     </div>
     </div>
 </template>
@@ -60,5 +60,6 @@ console.log(products.value)
     width:100%;
     display: block;
     margin: auto;
+    cursor: pointer;
 }
 </style>
