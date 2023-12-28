@@ -5,7 +5,9 @@ import {
   getFirestore,
   collection,
   getDocs,
-  addDoc
+  addDoc,
+  doc,
+  getDoc
 }
   from 'firebase/firestore/lite';
 
@@ -44,5 +46,7 @@ export {
   ref,
   uploadBytesResumable,
   getDownloadURL,
-  addDoc
+  addDoc,
+  doc,
+  getDoc
 };

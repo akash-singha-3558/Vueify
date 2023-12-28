@@ -1,16 +1,17 @@
 import Home from "./views/Home.vue";
 import Admin from "./views/Admin.vue";
-import {createRouter,createWebHistory} from "vue-router";
+import ProductDetails from "./views/ProductDetails.vue";
 
+import { createRouter, createWebHistory } from "vue-router";
 
 const routes = [
-  { path: '/', component: Home },
-  {path:'/admin', component: Admin}
-]
-
+  { path: "/", component: Home },
+  { path: "/admin", component: Admin },
+  { path: "/productDetails/:id", component: ProductDetails },
+];
 
 export const router = createRouter({
-  // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
+ 
   history: createWebHistory(),
-  routes, // short for `routes: routes`
-})
+  routes,
+});
