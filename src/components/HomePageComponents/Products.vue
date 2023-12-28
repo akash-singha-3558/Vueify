@@ -1,6 +1,6 @@
 <template>
     <div id="products">
-    <div id="individual_product" v-for="(item,index) in products" :key="index">
+    <div id="individual_product" v-for="(item,index) in products" :key="item.id">
     <img id="prodImage" :src="item.imageUrl" :alt="item.name">
     <p>{{ item.title }}</p>
     <p>{{ item.price }}</p>
@@ -28,9 +28,10 @@ let fetchProductData=async()=>{
     const querySnapshot = await getDocs(collection(db, "vuestore"));
 querySnapshot.forEach((doc) => {
   // doc.data() is never undefined for query doc snapshots
-  products.value.push(doc.data())
-  console.log(doc.id, " => ", doc.data());
+  products.value.push({...doc.data(),id:doc.id})
+//   console.log(doc.id, " => ", doc.data());
 });
+console.log(products.value)
 }
 
 
@@ -46,12 +47,14 @@ querySnapshot.forEach((doc) => {
     padding-top: 1rem;
     
 }
+
 /* #individual_product{
     height: 220px;
     width: 320px;
     border: 1px solid black;
     margin: auto;
 } */
+
 #prodImage{
     
     width:100%;
