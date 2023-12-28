@@ -6,8 +6,7 @@
         v-model="form.title"
         label="Product title *"
         hint="Name of your product"
-        lazy-rules
-        :rules="[(val) => (val && val.length > 0) || 'Please type something']"
+       
       />
 
       <q-input
@@ -17,10 +16,7 @@
         label="Product Price *"
         hint="Price of your product"
         lazy-rules
-        :rules="[
-          (val) =>
-            (val !== null && val !== '') || 'Please type your product price',
-        ]"
+      
       />
 
       <q-file
@@ -50,6 +46,9 @@ import {
   ref as firebaseRef,
   uploadBytesResumable,
   getDownloadURL,
+  collection,
+  addDoc,
+  db
 } from "../../firebase.js";
 
 
@@ -99,11 +98,13 @@ const fileUpload = () => {
     },
     (error) => {
       // Handle unsuccessful uploads
+      console.log(error)
     },
     () => {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+      console.log("file is uploaded");
         form.imageUrl=downloadURL;
 
       });
@@ -113,22 +114,25 @@ const fileUpload = () => {
 
 
 
-const handleFormData=()=>{
+const handleFormData=async()=>{
 //form data
-console.log(form)
+// console.log(form)
 
+
+
+// Add a new document with a generated id.
+const docRef = await addDoc(collection(db, "vuestore"), form);
+console.log("Document written with ID: ", docRef.id);
+
+form.imageUrl="";
+form.title="";
+form.price=null;
+file = ref(null);
 
 
 
 
 }
-
-
-
-
-
-
-
 
 
 
