@@ -32,8 +32,9 @@ let fetchSingleFileData = async () => {
 
     if (docSnap.exists()) {
         console.log("Document data:", docSnap.data());
-        product.value = docSnap.data();
-        console.log(product.value, "test")
+        product.value = {...docSnap.data(),id:docSnap.id};
+      
+         console.log(product.value, "test")
     } else {
         // docSnap.data() will be undefined in this case
         console.log("No such document!");

@@ -6,21 +6,28 @@
       </div>
       <div id="rhs">
         <div>Account</div>
-        <div id="cart">
+        <div id="cart" @click="toggoleCart()">
           <q-icon name="shopping_cart" />
           <div id="cart_count">{{ cartStore.cart_count }}</div>
           <!-- shopping_cart -->
-
+      
+          <CartPopupComponent :dialogVisibility="popUp"/>
         </div>
       </div>
     </div>
+  
   </div>
 </template>
 
 <script setup>
 import { useCartStore } from "../../store.js";
+import CartPopupComponent from "../CartComponents/CartPopup.vue";
+import { ref } from "vue";
 const cartStore = useCartStore();
-console.log("test ==> ", cartStore.cart_count)
+const popUp=ref(false);
+const toggoleCart=()=>{
+  popUp.value=!popUp.value;
+} 
 </script>
 
 <style  scoped>
