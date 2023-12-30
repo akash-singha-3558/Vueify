@@ -53,6 +53,9 @@ const onSubmit=async()=>{
     try {
   const docRef = await addDoc(collection(db, "vuestoreorders"), form);
 //   console.log("Document written with ID: ", docRef.id);
+form.name="";
+form.contact=null;
+form.address="";
 } catch (e) {
   console.error("Error adding document: ", e);
 }
