@@ -11,6 +11,7 @@
         <q-card-section>
           <div>
             <h4>Recently Added Items</h4>
+            <!-- <h5>Total : ₹{{cartStore.cart_total}}</h5> -->
           </div>
 
           <q-space />
@@ -26,8 +27,8 @@
               </div>
               <div id="rhs">
                 <p>{{ product.title }}</p>
-                <p>{{ product.price }}</p>
-                <p>Qty: {{ product.quantity }}</p>
+                <p>₹{{ product.price }}</p>
+                <!-- <p>Qty: {{ product.quantity }}</p> -->
 
                 <q-icon @click="removefromCart(product.id)" name="delete" />
               </div>
@@ -35,7 +36,7 @@
           </div>
 
           <div id="cart_total">
-            <p>Cart Total : {{ cartStore.cartTotal }}</p>
+            <p>Cart Total :  ₹{{cartStore.cart_total}}</p>
           </div>
 
           <div id="place_order">
