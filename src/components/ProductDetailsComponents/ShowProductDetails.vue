@@ -31,13 +31,13 @@ let fetchSingleFileData = async () => {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
+        // console.log("Document data:", docSnap.data());
         product.value = {...docSnap.data(),id:docSnap.id};
       
-         console.log(product.value, "test")
+        //  console.log(product.value, "test")
     } else {
         // docSnap.data() will be undefined in this case
-        console.log("No such document!");
+        // console.log("No such document!");
     }
 
 }
