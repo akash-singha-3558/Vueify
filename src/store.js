@@ -9,15 +9,17 @@ export const useCartStore = defineStore("carts", () => {
   //actions => these are functions which change state properties
 
   const addToCartAction = (product) => {
-   
-    if (!cart.value.includes(product)) {
+    if (cart.value.indexOf(product)===-1) {
       cart.value.push(product);
     }
   };
-
+  const removefromCart=(id)=>{
+    cart.value=cart.value.filter((ele,index)=>ele.id!=id)
+  }
   return {
     cart_count,
     cart,
     addToCartAction,
+    removefromCart
   };
 });
